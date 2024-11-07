@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-page -d dist"
   },
+  "homepage": "https://gacay.github.io/heopeo.birthday/",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0"
+    "react-router-dom": "^6.28.0",
+    "gh-pages": "^1.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
