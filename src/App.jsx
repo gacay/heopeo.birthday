@@ -10,7 +10,7 @@ function App() {
   const [quizCompleted, setQuizCompleted] = useState(false);
 
   return (
-    <Router>
+    <Router basename="/heopeo.birthday">
       <div className="App">
         <header className="App-header">
           <h1>🎉 Happy Birthday Quiz 🎉</h1>
