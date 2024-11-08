@@ -5,6 +5,7 @@ import examplemp4 from './assets/examplemp4.mp4';
 import Question3 from "./Questions/Question3";
 import Question1 from "./Questions/Question1";
 import Question2 from "./Questions/Question2";
+import DigitalScrapbook from "./Questions/DigitalScrapbook";
 
 function App() {
   const [quizCompleted, setQuizCompleted] = useState(false);
@@ -28,7 +29,7 @@ function App() {
           />
           {quizCompleted && (
             <Route
-              path="/surprise-video"
+              path="/Digital-Scrapbook"
               element={
                 <div className="video-container">
                   <h2>Here's your surprise video!</h2>

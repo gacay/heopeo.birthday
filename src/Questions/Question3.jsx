@@ -71,7 +71,7 @@ function Question3() {
 
     if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
       setIsPuzzleCorrect(true);
-      navigate("/surprise-video"); // Navigate to surprise video if the puzzle is complete in correct order
+      navigate("/Digital-Scrapbook"); // Navigate to surprise video if the puzzle is complete in correct order
     } else {
       setIsPuzzleCorrect(false);
     }
