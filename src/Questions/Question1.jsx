@@ -13,16 +13,17 @@ function Question1() {
   const handleNextClick = () => {
     // Only navigate if the selected answer is "25/12"
     if (selectedAnswer === "25/12") {
+      alert("Good start! It is deceMber 25th!");
       navigate("/question2");
     } else {
-      alert("Incorrect answer. Please try again!");
+      alert("Ehhhhhhhh wrong 😡! please be serious and lock in rn bruh");
     }
   };
 
   return (
     <div>
-      <h2>Question 1: When did we go to Korea last year?</h2>
-      <div>
+      <div className="Questionbox">
+      <h2>Question 1: When did we go to Korea last year 🇰🇷?</h2>
         <label>
           <input
             type="radio"
@@ -60,7 +61,7 @@ function Question1() {
           25/12
         </label>
       </div>
-      <button onClick={handleNextClick}>Next</button>
+      <button type = "submit" onClick={handleNextClick}>Submit Answer</button>
     </div>
   );
 }

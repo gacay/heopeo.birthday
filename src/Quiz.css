@@ -1,48 +1,191 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.Questionbox{
+  margin: 2% 10%;
+}
+/* Main Quiz Container */
 .quiz-container {
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  width: 80%;
-  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f9f9f9; /* Soft pastel background */
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px; /* Rounded corners for a soft look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.quiz-container:hover {
+  transform: translateY(-5px); /* Lift up the container slightly */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+/* Question Container */
+.question-container {
+  background-color: #fff; /* Light pastel white */
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Stack question and input vertically */
+  gap: 15px; /* Space between question and input field */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.question-container:hover {
+  transform: translateY(-4px); /* Slightly move up on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
 }
 
 .question-container h2 {
-  font-size: 1.5em;
-  color: #333;
+  font-size: 1.5rem;
+  color: #4c4c4c; /* Darker gray for text */
+  margin-bottom: 15px; /* Ensure space between question text and input */
 }
 
+/* Input Styles */
 input[type="text"] {
-  padding: 10px;
-  font-size: 1em;
-  width: 80%;
+  padding: 12px;
+  font-size: 1rem;
+  width: 100%; /* Ensure the input takes up full width */
   margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  background-color: #fafafa; /* Light pastel background for inputs */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  margin-top: 2%;
 }
 
+input[type="text"]:focus {
+  background-color: #f0f0f0; /* Slightly darker when focused */
+  border-color: #ffb6c1; /* Pastel pink border on focus */
+  box-shadow: 0 0 8px rgba(255, 182, 193, 0.5); /* Light shadow effect */
+  outline: none; /* Remove outline */
+}
+
+/* Button Styles */
 button {
-  padding: 10px 15px;
-  font-size: 1em;
+  padding: 12px 20px;
+  font-size: 1rem;
   color: #ffffff;
-  background-color: #ff6666;
+  background-color: #ff8ba7; /* Soft pastel pink */
   border: none;
-  border-radius: 5px;
+  border-radius: 25px; /* Rounded, pill-like button */
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  margin: 0px 10%;
 }
 
 button:hover {
-  background-color: #ff4c4c;
+  background-color: #ff6b81; /* Slightly darker pink on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
 }
 
+button:active {
+  background-color: #ff3366; /* Darker pink on click */
+  transform: scale(1); /* Reset scale */
+}
+
+/* Video Container */
 .video-container {
   text-align: center;
+  margin-top: 30px;
 }
 
 video {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
+  max-width: 450px;
+  border-radius: 15px; /* Soft, rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow around video */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+video:hover {
+  transform: scale(1.02); /* Slight zoom-in effect */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #ff8ba7; /* Adds a cute pastel pink to the radio buttons */
+}
+
+input[type="radio"]:checked + label {
+  color: #ff6b81; /* Change label color when selected */
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding: 10px; /* Adds some padding for smaller screens */
+}
+
+.qr-code-img {
+  width: 256px; /* Default width */
+  height: 256px; /* Default height */
+  max-width: 100%; /* Ensures the image doesn't overflow */
+  max-height: 100%; /* Ensures the image doesn't overflow */
+  margin: 5% 20%;
+}
+
+.QRCODE h2{
+  margin: 0% 25%;
+}
+
+/* Responsive Design for Mobile (iPhone 14) */
+@media (max-width: 390px) {
+  .quiz-container {
+    padding: 20px;
+    width: 90%;
+    margin: 15px auto; /* Ensure some margin around the container */
+  }
+
+  .question-container {
+    padding: 15px;
+  }
+
+  .question-container h2 {
+    font-size: 1.3rem; /* Slightly smaller font size */
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 0.9rem; /* Slightly smaller input size */
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 0.9rem; /* Smaller button size */
+  }
+
+  .video-container {
+    margin-top: 20px;
+  }
+
+  video {
+    max-width: 100%; /* Ensure video is responsive */
+  }
+
+  .QRCODE{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

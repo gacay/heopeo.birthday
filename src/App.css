@@ -1,32 +1,226 @@
-.App {
-  text-align: center;
-  background-color: #f5f7fa;
-  min-height: 100vh;
-  font-family: "Arial", sans-serif;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  height: auto;
+  width: auto;
 }
 
+body {
+  background: linear-gradient(135deg, #a2d2ff, #f7f3f9); /* Ombre effect from pastel blue to light purple */
+  color: #4c4c4c; /* Darker grey for text */
+  padding-top: 80px; /* Adjust padding to avoid content being hidden under fixed header */
+  transition: background-color 0.5s ease; /* Ensure background transition */
+}
+
+/* Header (Fixed at the top) */
 .App-header {
-  background-color: #ffcccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #f7f3f9, #ffafcc); /* Ombre pastel pink gradient */
+  color: #fff;
+  text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  margin: 20px;
+  z-index: 1000; /* Ensure header is above other content */
+  border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease, box-shadow 0.3s ease, padding 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+/* Header hover effect */
+.App-header:hover {
+  background: linear-gradient(135deg, #ffafcc, #f7f3f9); /* Reverse the gradient on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  padding: 25px; /* Slightly increase padding on hover for a subtle effect */
 }
 
 .App-header h1 {
-  font-size: 2.5em;
-  color: #ff6666;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  transition: font-size 0.3s ease; /* Transition for header text size */
 }
 
 .App-header p {
-  font-size: 1.2em;
-  color: #333;
+  font-size: 1.2rem;
+  transition: font-size 0.3s ease; /* Transition for paragraph text size */
 }
 
-.video-container {
+/* Button Styles */
+button {
+  background-color: #ffb6c1; /* Light pastel pink */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for background and button scale */
+}
+
+button:hover {
+  background-color: #ff80ab; /* Slightly darker pink */
+  transform: scale(1.05); /* Scale up button slightly on hover */
+}
+
+button:active {
+  background-color: #ff3366; /* Even darker pink when clicked */
+  transform: scale(1); /* Reset scale when active */
+}
+
+/* Smooth fade-in for transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 100px; /* Adjust to ensure content is not hidden under fixed header */
+  transition: opacity 0.5s ease; /* Transition for opacity */
+  opacity: 1; /* Ensure initial opacity is set */
+  width: auto;
+  height: auto;
+}
+
+/* Pastel color transitions */
+.App-header h1, .App-header p, button {
+  transition: all 0.3s ease-in-out;
+}
+
+/* For route transition effects (page fades in) */
+.fade-page {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-page-enter {
+  opacity: 0;
+}
+
+.fade-page-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out; /* Added ease-in-out for smooth transition */
+}
+
+.fade-page-exit {
+  opacity: 1;
+}
+
+.fade-page-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out; /* Added ease-in-out for smooth transition */
+}
+
+/* Custom page styling for the questions */
+.question-container {
+  background-color: #fdfdfd; /* Light pastel background for questions */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 80%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for transform and shadow */
+}
+
+.question-container:hover {
+  transform: translateY(-5px); /* Slightly move up when hovered */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly enhance the shadow */
+}
+
+.question-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.question-container label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.question-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+.question-container button {
   margin-top: 20px;
 }
 
-video {
-  border: 2px solid #ff66b2;
-  border-radius: 8px;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .question-container {
+    width: 90%;
+    margin-top: 20%;
+  }
+}
+
+@media (max-width: 430px) { /* iPhone 14 Pro Portrait */
+  /* Adjust font sizes for iPhone 14 Pro */
+  .App-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .App-header p {
+    font-size: 1rem;
+  }
+
+  .question-container {
+    width: 95%; /* Make question container take more space */
+    padding: 15px; /* Adjust padding for small screen */
+  }
+
+  button {
+    font-size: 0.9rem; /* Slightly reduce button text size */
+    padding: 8px 16px; /* Adjust padding for smaller screen */
+  }
+
+  .question-container h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Optional: Adjust body padding and layout to fit the small screen */
+  body {
+    padding-top: 60px; /* Reduce padding for smaller screen */
+  }
+  .App{
+    margin-top: 20%;
+  }
+
+  input{
+    margin-bottom: 5%;
+  }
+}
+
+@media (max-width: 800px) and (min-width: 430px) { /* iPhone 14 Pro Landscape */
+  /* Adjust for landscape mode */
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .question-container {
+    width: 45%; /* Fit two columns side-by-side */
+    margin: 10px;
+  }
+
+  button {
+    font-size: 0.5rem;
+  }
 }

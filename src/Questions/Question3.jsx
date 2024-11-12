@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Question3.css";
-import piece1 from "../assets/1.png";
-import piece2 from "../assets/2.png";
-import piece3 from "../assets/3.png";
-import piece4 from "../assets/4.png";
+import piece1 from "../assets/1.jpg";
+import piece2 from "../assets/2.jpg";
+import piece3 from "../assets/3.jpg";
+import piece4 from "../assets/4.jpg";
 
 function Question3() {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ function Question3() {
 
     if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
       setIsPuzzleCorrect(true);
-      navigate("/Digital-Scrapbook"); // Navigate to surprise video if the puzzle is complete in correct order
+      navigate("/Question4"); // Navigate to surprise video if the puzzle is complete in correct order
     } else {
       setIsPuzzleCorrect(false);
     }
@@ -79,7 +79,7 @@ function Question3() {
 
   return (
     <div className="puzzle-container">
-      <div><h2>Arrange the pieces to complete the puzzle!</h2></div>
+      <div><h2>Arrange the pieces to complete the 🧩!</h2></div>
       <div className="puzzle-wrapper">
         <div className="puzzle-grid">
           {/* Empty grid cells */}
@@ -106,7 +106,7 @@ function Question3() {
             ))}
         </div>
 
-        <p>Drag pieces back here to remove them from the grid!</p>
+        <p>Drag pieces back here to remove them from the grid! <br/>In case of mistake, drag the piece back into the box below<br/>BEFORE dragging them back into the desired location.</p>
         {/* Right panel with draggable pieces (Back container) */}
         <div
           className="back-container"
@@ -134,9 +134,9 @@ function Question3() {
       {isPuzzleCorrect !== null && (
         <div>
           {isPuzzleCorrect ? (
-            <p>You got the puzzle right! 🎉</p>
+            <p>Congratulations you solved the puzzle 🎉 I hope this is not your third time lol</p>
           ) : (
-            <p>Oops, the puzzle is not correct. Try again!</p>
+            <p>Bruh read the damn instructions and be better 😑 <br/> But I'm glad you taking a while tho because this puzzle has been giving me headaches to code 😤</p>
           )}
         </div>
       )}
